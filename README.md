@@ -1,104 +1,91 @@
 # roop-unleashed
 
-[Changelog](#changelog) • [Installation](#installation) • [Usage](#usage) • [Example](#example) • [FAQ](#faq)
+[Cambios](#cambios) • [Instalación](#instalación) • [Uso](#uso) • [Ejemplo](#ejemplo) • [Preguntas frecuentes](#faq)
 
+Deepfakes sin censura para imágenes y videos sin entrenamiento y una interfaz gráfica de usuario fácil de usar.
 
-Uncensored Deepfakes for images and videos without training and an easy-to-use GUI.
+![Captura de pantalla](docs/screenshot.png)
 
+### Características
 
-![Screen](docs/screenshot.png)
+- Interfaz gráfica de usuario independiente de la plataforma del navegador
+- Selección de múltiples caras de entrada/salida de una sola vez
+- Muchos modos de intercambio diferentes, primeras detecciones, selecciones de caras, por género
+- Procesamiento por lotes de imágenes/videos
+- Enmascaramiento de obstrucciones faciales utilizando indicaciones de texto
+- Restauración opcional de caras mediante diferentes mejoradores
+- Vista previa de intercambio desde diferentes fotogramas de video
+- Fake Cam en vivo utilizando tu cámara web
+- Pestaña de extras para cortar videos, etc.
+- Configuraciones: almacenamiento de configuración para la próxima sesión
+- Soporte para temas
 
+¡Y mucho más...
 
-### Features
+## Descargo de responsabilidad
 
-- Platform-independant Browser GUI
-- Selection of multiple input/output faces in one go
-- Many different swapping modes, first detected, face selections, by gender
-- Batch processing of images/videos
-- Masking of face occluders using text prompts
-- Optional Face Restoration using different enhancers
-- Preview swapping from different video frames
-- Live Fake Cam using your webcam
-- Extras Tab for cutting videos etc.
-- Settings - storing configuration for next session
-- Theme Support
+Este proyecto es solo para uso técnico y académico. Se espera que los usuarios de este software utilicen el software de manera responsable cumpliendo con la ley local. Si se utiliza la cara de una persona real, se sugiere que los usuarios obtengan el consentimiento de la persona involucrada y mencionen claramente que es un deepfake al publicar contenido en línea. Los desarrolladores de este software no serán responsables de las acciones de los usuarios finales.
+**Por favor, no lo apliques en situaciones ilegales e inmorales.**
 
-and lots more...
+En caso de violación de los requisitos legales y éticos del país o región del usuario, este repositorio de código está exento de responsabilidad.
 
+### Instalación
 
-## Disclaimer
+> Para Windows, necesitas descargar e instalar [Visual Studio](https://visualstudio.microsoft.com/de/downloads/) (teóricamente, las herramientas de compilación podrían funcionar también, pero en mi experiencia hasta ahora no lo hacen). Durante la instalación, asegúrate de incluir el paquete de C++.
 
-This project is for technical and academic use only.
-Users of this software are expected to use this software responsibly while abiding the local law. If a face of a real person is being used, users are suggested to get consent from the concerned person and clearly mention that it is a deepfake when posting content online. Developers of this software will not be responsible for actions of end-users.
-**Please do not apply it to illegal and unethical scenarios.**
+Además de eso, simplemente usa el instalador de un clic en las versiones. Esto descargará e instalará todo en un entorno conda práctico. Esto no solo instala la aplicación sino que también la ejecuta, una vez instalada.
 
-In the event of violation of the legal and ethical requirements of the user's country or region, this code repository is exempt from liability
-
-### Installation
-
-> For Windows, you need to download and install [Visual Studio](https://visualstudio.microsoft.com/de/downloads/) (in theory build-tools might work too but in my experience so far they don't). During the install, make sure to include the C++ package.
-
-Besides that, just use the 1-click installer in releases. This will download and install everything
-in a handy conda environment. This not only installs the application but also runs it, once installed.
-
-For other OS or if you know what you're doing:
+Para otros sistemas operativos o si sabes lo que estás haciendo:
 
 - `git clone https://github.com/C0untFloyd/roop-unleashed`
-- preferably create a venv or conda environment
+- preferiblemente, crea un entorno virtual o un entorno conda
 - `cd roop-unleashed`
 - `pip install -r requirements.txt`
 
-Depending on your available GPU there are additional packages you need to install. Here are the instructions from the original roop page:
+Dependiendo de la GPU disponible, es posible que necesites instalar paquetes adicionales. Aquí tienes las instrucciones de la página original de roop:
 
-[Using GPU Acceleration](https://github.com/s0md3v/roop/wiki/2.-Acceleration)
+[Usar aceleración de GPU](https://github.com/s0md3v/roop/wiki/2.-Acceleration)
 
-The used GPU Provider is configured in the settings tab, no need to use cmdline arguments any more. Default is CUDA (for NVIDIA). If you change it, please restart roop-unleashed completely to allow for model reloading.
+El proveedor de GPU utilizado se configura en la pestaña de configuración, no es necesario utilizar argumentos de línea de comandos. El valor predeterminado es CUDA (para NVIDIA). Si lo cambias, reinicia completamente roop-unleashed para permitir la recarga del modelo.
 
-For Video face-swapping you also need to have ffmpeg properly installed (having it in your PATH Env). The windows installer tries to do this automatically.  
+Para el intercambio de caras en video, también necesitas tener ffmpeg instalado correctamente (teniéndolo en tu variable de entorno PATH). El instalador de Windows intenta hacer esto automáticamente.
 
+### Uso
 
-
-### Usage
-
-- Windows: run the `windows_run.bat` from the Installer.
+- Windows: ejecuta `windows_run.bat` desde el instalador.
 - Linux: `python run.py`
 
 <a target="_blank" href="https://colab.research.google.com/github/C0untFloyd/roop-unleashed/blob/main/roop-unleashed.ipynb">
-  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Abrir en Colab"/>
 </a>
-  
 
-Additional commandline arguments are currently unsupported and settings should be done via the UI.
+Los argumentos adicionales de la línea de comandos no son compatibles actualmente y la configuración debe realizarse mediante la interfaz de usuario.
 
-> Note: When you run this program for the first time, it will download some models roughly ~2Gb in size.
+> Nota: Cuando ejecutas este programa por primera vez, descargará algunos modelos de aproximadamente ~2 GB de tamaño.
 
+### Ejemplo
 
-### Example
+*Próximamente*
 
-*Coming soon*
-
-
-
-### Changelog
+### Cambios
 
 **11.8.2023** v2.7.0
 
-Initial Gradio Version - old TkInter Version now deprecated
+Versión inicial de Gradio: la antigua versión de TkInter ahora está obsoleta
 
-- Re-added unified padding to face enhancers
-- Fixed DMDNet for all resolutions
-- Selecting target face now automatically switches swapping mode to selected
-- GPU providers are correctly set using the GUI (needs restart currently)
-- Local output folder can be opened from page
-- Unfinished extras functions disabled for now
-- Installer checks out specific commit, allowing to go back to first install
-- Updated readme for new gradio version
-- Updated Colab
+- Reagregado relleno unificado a los mejoradores faciales
+- Corregido DMDNet para todas las resoluciones
+- La selección de la cara objetivo ahora cambia automáticamente el modo de intercambio a seleccionado
+- Los proveedores de GPU se configuran correctamente mediante la GUI (necesita reinicio actualmente)
+- La carpeta de salida local se puede abrir desde la página
+- Funciones extras inacabadas deshabilitadas por ahora
+- El instalador verifica un compromiso específico, permitiendo volver a la primera instalación
+- Actualizado el readme para la nueva versión de Gradio
+- Actualizado Colab
 
+# Reconocimientos
 
-# Acknowledgements
-
-Lots of ideas, code or pre-trained models used from the following projects:
+Muchas ideas, código o modelos preentrenados utilizados de los siguientes proyectos:
 
 https://github.com/deepinsight/insightface
 https://github.com/s0md3v/roop
@@ -109,6 +96,4 @@ https://github.com/TencentARC/GFPGAN
 https://github.com/kadirnar/codeformer-pip
 https://github.com/csxmli2016/DMDNet
 
-
-Thanks to all developers!
-
+Gracias a todos los desarrolladores!
